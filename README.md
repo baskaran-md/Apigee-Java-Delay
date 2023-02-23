@@ -72,6 +72,19 @@ randomly.
   <ResourceURL>java://apigee-custom-delay-20210412.jar</ResourceURL>
 </JavaCallout>
 ```
+
+## Example: Delay a time determined by a query param "ms"
+
+```xml
+<JavaCallout name='Java-Delay-1'>
+  <Properties>
+    <Property name='delay'>{request.queryparam.ms}</Property>
+  </Properties>
+  <ClassName>com.google.apigee.callouts.delay.DelayCallout</ClassName>
+  <ResourceURL>java://apigee-custom-delay-20210412.jar</ResourceURL>
+</JavaCallout>
+```
+
 ## Example: Delay a random amount of time
 
 With this configuration you can specify the minimum and maximum time, and the
@@ -126,18 +139,13 @@ if you like. Building from source requires Java 1.8, and Maven.
 
 1. unpack (if you can read this, you've already done that).
 
-2. Before building _the first time_, configure the build on your machine by loading the Apigee jars into your local cache:
+2. Build the repo
+	- Configure the build on your machine by loading the Apigee jars into your local cache:
+    - Build the jar and also run all the tests.
+    - Create ZIP archive for uploading to apiproxy.
   ```
   ./buildsetup.sh
   ```
-
-3. Build with maven.
-  ```
-  mvn clean package
-  ```
-  This will build the jar and also run all the tests.
-
-
 
 ## Build Dependencies
 

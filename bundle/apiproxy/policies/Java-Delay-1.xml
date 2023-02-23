@@ -1,4 +1,7 @@
 <JavaCallout name='Java-Delay-1'>
+  <Properties>
+      <Property name="delay">{request.queryparam.ms}</Property>
+  </Properties>
   <ClassName>com.google.apigee.callouts.delay.DelayCallout</ClassName>
   <ResourceURL>java://apigee-custom-delay-20210412.jar</ResourceURL>
 </JavaCallout>
